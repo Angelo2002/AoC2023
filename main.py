@@ -1,23 +1,42 @@
+dict = {'one': '1', 'two': '2', 'three': '3', 'four': '4', 'five': '5', 'six': '6', 'seven': '7', 'eight': '8', 'nine': '9', 'zero': '0'}
+def checkForNumber(string):
+    substring = string[0:]
+    for i in range(len(string)):
+        if(substring in dict):
+            return dict[substring]
+        else:
+            substring = substring[1:]
+    return 'a'
 def day1():
-    pass
-
-
-def process_file(filename):
-    with open(filename, 'r') as file:
-        # Read the content of the file
+    ans = ""
+    with open("day1.txt") as file:
         content = file.read()
+    listx = content.strip().split()
+    ans = 0
+    for calval in listx:
+        start = 'a'
+        end = 'a'
+        possibleS = ""
+        for char in calval:
+            possibleS+=char
+            if char.isdigit():
+                if start == 'a':
+                    start = char
+                    end = char
+                else:
+                    end = char
+            char = checkForNumber(possibleS)
+            if (char!='a'):
+                if start == 'a':
+                    start = char
+                    end = char
+                else:
+                    end = char
 
-        # Process the content
-        elf_groups = content.strip().split("\n\n")
-        total_calories_per_elf = [sum(map(int, group.split('\n'))) for group in elf_groups]
-        max_calories = max(total_calories_per_elf)
+        ans += int(start + end)
 
-        return max_calories
+    print(ans)
 
-
-# Example usage
-max_calories = process_file('day1.txt')
-print(f"The Elf carrying the most calories is carrying a total of {max_calories} calories.")
 
 if __name__ == '__main__':
     day1()
