@@ -34,7 +34,7 @@ class Game:
 
 def day2():
     ans = ""
-    with open("day2.txt") as file:
+    with open("../input/day2.txt") as file:
         content = file.read()
     listx = content.strip().split("\n")
     ans=0

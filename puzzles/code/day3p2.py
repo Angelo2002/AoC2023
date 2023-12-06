@@ -36,7 +36,7 @@ class enginePiece:
 
 def day3():
     ans = 0
-    with open("day3.txt") as file:
+    with open("../input/day3.txt") as file:
         content = file.read()
     listx = content.strip().split("\n")
     y = 0

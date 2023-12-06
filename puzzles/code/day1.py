@@ -9,7 +9,7 @@ def checkForNumber(string):
     return 'a'
 def day1():
     ans = ""
-    with open("day1.txt") as file:
+    with open("../input/day1.txt") as file:
         content = file.read()
     listx = content.strip().split()
     ans = 0
